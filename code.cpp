@@ -3,17 +3,15 @@ using namespace std;
 
 #define all(a)                      (a).begin(),(a).end()
 
-vector<string> keywrd = {"auto","double","int","struct","break","else","long","switch","case","enum","register","typedef","char","extern","return","union","const","short","float","unsigned","continue","for","signed","void","default","goto","sizeof","volatile","do","if","static","while"};
+vector<string> keywrd = {"begin","end","auto","double","int","struct","break","else","long","switch","case","enum","register","typedef","char","extern","return","union","const","short","float","unsigned","continue","for","signed","void","default","goto","sizeof","volatile","do","if","static","while"};
 vector<string> punctuation = {" ","+","-","*","/",",",";",">","<","=","(",")","[","]","{","}","&","|"};
-vector<string> operators = {"+","-","*","/",">","<","=","|","&"};
+vector<string> paranthesis = {"{","}","(",")","[","]"};
+vector<string> operators = {"+","-","*","/",">","<","=","|","&","++","--"};
 
 bool isInteger(string s){
     for(auto i:s){
         if(isdigit(i) == false and i != '.' and i != '-'){
             return false;
-        }
-        else{
-            return true;
         }
     }
     return true;
@@ -27,6 +25,9 @@ void solve(string s){
     }
     else if(isInteger(s)){
         cout << s << " is a Number\n";
+    }
+    else if(find(all(paranthesis), s) != paranthesis.end()){
+        cout << s << " is a paranthesis\n";
     }
     else if(find(all(keywrd), s) != keywrd.end()){
         cout << s << " is a Keyword\n";
@@ -46,6 +47,3 @@ int main(){
          solve(s);
     }
 }
-
-
-
