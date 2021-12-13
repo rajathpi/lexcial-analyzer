@@ -1,0 +1,5 @@
+S->A+B
+A->id
+A->e
+B->e
+B->id
